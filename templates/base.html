@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}My Website{% endblock %}</title>
+  <!-- <title>My Blog</title> -->
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+
+  <div class="sidebar">
+      <aside class="sidebar">
+        <h1>Prakrut Chaubal</h1>
+        
+          <img src="/static/images/CMB.webp" alt="Profile Picture" class="sidebar-image">
+
+          <ul>
+            <li><a href="/index.html">🏠 Home</a></li>
+            <li><a href="/tabs/about.html">👤 About</a></li>
+            <li><a href="/tabs/archive.html">📚 Archive</a></li>
+            <li><a href="/tabs/contact.html">✉️ Contact</a></li>
+          </ul>
+      </aside>
+  </div>
+
+  {% block body %}{% endblock %}
+
+</body>
+
+</html>
+

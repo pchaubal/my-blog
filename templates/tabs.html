@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="content">
+  <h1>{{ title.replace("_", " ").title() }}</h1>
+  <article>
+    {{ content|safe }}
+  </article>
+</div>
+{% endblock %}
+

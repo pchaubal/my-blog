@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="content">
+  <h1>📚 Archive</h1>
+  <ul>
+    {% for post in posts %}
+      <li>
+        <a href="/posts/{{ post }}.html">{{ post.replace("_", " ").title() }}</a>
+        <span class="date">{{ timestamps[post] }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
+
