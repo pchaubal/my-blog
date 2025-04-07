@@ -11,20 +11,20 @@
 
 <body>
 
-  <div class="sidebar">
-      <aside class="sidebar">
-        <h1>Prakrut Chaubal</h1>
-        
-          <img src="/static/images/CMB.webp" alt="Profile Picture" class="sidebar-image">
 
-          <ul>
-            <li><a href="/index.html">🏠 Home</a></li>
-            <li><a href="/tabs/about.html">👤 About</a></li>
-            <li><a href="/tabs/archive.html">📚 Archive</a></li>
-            <li><a href="/tabs/contact.html">✉️ Contact</a></li>
-          </ul>
-      </aside>
+  <div class="sidebar-container">
+    <aside class="sidebar">
+      <img src="/static/images/CMB.webp" alt="Profile Picture" class="sidebar-image">
+      <h1>Prakrut Chaubal</h1>
+      <ul>
+        <li><a href="/index.html" class="nav-link {% if current_page == 'home' %}active{% endif %}">🏠 Home</a></li>
+        <li><a href="/tabs/about.html" class="nav-link {% if current_page == 'about' %}active{% endif %}">👤 About</a></li>
+        <li><a href="/tabs/archive.html" class="nav-link {% if current_page == 'archive' %}active{% endif %}">📚 Archive</a></li>
+        <li><a href="/tabs/contact.html" class="nav-link {% if current_page == 'contact' %}active{% endif %}">✉️ Contact</a></li>
+      </ul>
+    </aside>
   </div>
+
 
   {% block body %}{% endblock %}
 

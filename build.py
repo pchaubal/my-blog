@@ -18,11 +18,11 @@ STATIC_DIR = "static"
 
 def main():
     # Ensure output directory exists
+    remove_directory_contents(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     copy_static_files()
     make_index_page()
     make_tab_pages()
-    make_archive_page()
     make_post_pages()
 
     return
@@ -42,7 +42,7 @@ def make_index_page():
     with open ( "home.md", "r", encoding="utf-8" ) as f:
         content_md = f.read()
     content_html = markdown.markdown(content_md, extensions=["fenced_code", "codehilite"])
-    html = post_template.render( title="Home", content=Markup(content_html) )
+    html = post_template.render( title="Home", content=Markup(content_html), current_page="home" )
     with open(os.path.join(OUTPUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
     return
@@ -59,10 +59,12 @@ def make_tab_pages():
             content_md = f.read()
         #
         content_html = markdown.markdown(content_md, extensions=["fenced_code", "codehilite"])
-        final_html = tab_template.render(title=tabname,  content=Markup(content_html))
+        final_html = tab_template.render(title=tabname,  content=Markup(content_html), current_page=tabname)
         with open(os.path.join(OUTPUT_DIR, f"tabs/{tabname}.html"), "w", encoding="utf-8") as f:
             f.write(final_html)
         #
+
+    make_archive_page()
     return
 
 def make_post_pages():
@@ -100,10 +102,19 @@ def make_archive_page():
     }
     # Render archive page
     archive_template = env.get_template("archive.html")
-    archive_html = archive_template.render(posts=post_names, timestamps=timestamp_map)
+    archive_html = archive_template.render(posts=post_names, timestamps=timestamp_map, current_page="archive")
     with open(os.path.join(OUTPUT_DIR, "tabs/archive.html"), "w", encoding="utf-8") as f:
         f.write(archive_html)
     return
+
+def remove_directory_contents(directory_path):
+    for filename in os.listdir(directory_path):
+        file_path = os.path.join(directory_path, filename)
+        try:
+            shutil.rmtree(file_path) if os.path.isdir(file_path) else os.remove(file_path)
+        except Exception as e:
+            print(f"Error removing {file_path}: {e}")
+
 
 if __name__ == "__main__":
     main()
