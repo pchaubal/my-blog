@@ -1,10 +1,24 @@
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Palatino", "Palatino Linotype", "Georgia", serif;
   background-color: #1e1e1e;
   color: #f0f0f0;
   display: flex;
 }
+
+/*Hyperlink formatting*/
+a {
+  color: #8be9fd; /* soft cyan, easy on the eyes */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a:hover {
+  color: #ffffff; /* bright white on hover */
+  text-shadow: 0 0 5px #8be9fd; /* gentle glow effect */
+}
+
 
 .sidebar-container {
   width: 15%;
@@ -61,7 +75,7 @@ body {
 /* General navigation link styles */
 .sidebar .nav-link {
   display: block;
-  padding: 22px 28px; /* adjust padding for a better rectangle look */
+  padding: 12px 15px; /* adjust padding for a better rectangle look */
   border-radius: 12px; /* rounded corners */
   text-decoration: none;
   color: #ccc; /* text color */
@@ -91,6 +105,18 @@ body {
 .content {
   padding: 40px;
   flex-grow: 1;
+  text-align: justify;
+  margin-left: 2%;  /* adjust based on your sidebar width */
+  margin-right: 20%;  /* space from right edge */
+  font-size: 22px;
+}
+
+.content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60%;
+  height: auto;
 }
 
 code {
