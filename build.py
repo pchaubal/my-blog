@@ -67,6 +67,29 @@ def make_tab_pages():
     make_archive_page()
     return
 
+def make_archive_page():
+    # Get post names and timestamps
+    post_filenames = [
+                        (f[:-3], os.path.getmtime(os.path.join(POSTS_DIR, f)))
+                        for f in os.listdir(POSTS_DIR)
+                        if f.endswith(".md")
+                        ]
+    # Sort by modified time, newest first
+    posts_sorted = sorted(post_filenames, key=lambda x: x[1], reverse=True)
+    # Extract names only for other uses
+    post_names = [name for name, _ in posts_sorted]
+    # Format timestamps
+    timestamp_map = {
+        name: datetime.fromtimestamp(ts).strftime("%Y-%m-%d")
+        for name, ts in posts_sorted
+    }
+    # Render archive page
+    archive_template = env.get_template("archive.html")
+    archive_html = archive_template.render(posts=post_names, timestamps=timestamp_map, current_page="archive")
+    with open(os.path.join(OUTPUT_DIR, "tabs/archive.html"), "w", encoding="utf-8") as f:
+        f.write(archive_html)
+    return
+
 def make_post_pages():
     # Ensure output directory exists
     os.makedirs(f"{OUTPUT_DIR}/posts", exist_ok=True)
@@ -81,30 +104,6 @@ def make_post_pages():
         final_html = post_template.render(title=post_name, content=Markup(content_html))
         with open(os.path.join(OUTPUT_DIR, f"posts/{post_name}.html"), "w", encoding="utf-8") as f:
             f.write(final_html)
-    return
-
-def make_archive_page():
-    # Get post names and timestamps
-    post_filenames = [
-                        (f[:-3], os.path.getmtime(os.path.join(POSTS_DIR, f)))
-                        for f in os.listdir(POSTS_DIR)
-                        if f.endswith(".md")
-                        ]
-    # Sort by modified time, newest first
-    posts_sorted = sorted(post_filenames, key=lambda x: x[1], reverse=True)
-    # Extract names only for other uses
-    post_names = [name for name, _ in posts_sorted]
-
-    # Format timestamps
-    timestamp_map = {
-        name: datetime.fromtimestamp(ts).strftime("%Y-%m-%d")
-        for name, ts in posts_sorted
-    }
-    # Render archive page
-    archive_template = env.get_template("archive.html")
-    archive_html = archive_template.render(posts=post_names, timestamps=timestamp_map, current_page="archive")
-    with open(os.path.join(OUTPUT_DIR, "tabs/archive.html"), "w", encoding="utf-8") as f:
-        f.write(archive_html)
     return
 
 def remove_directory_contents(directory_path):

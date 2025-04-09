@@ -7,4 +7,5 @@ And here is some code:
 ```python
 def hello():
     print("Hello, world!")
+    return
 ```
