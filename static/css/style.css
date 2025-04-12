@@ -113,6 +113,10 @@ a:hover {
   font-size: 22px;
 }
 
+.content h1 {
+  text-align:center;
+}
+
 .content img {
   display: block;
   margin-left: auto;
