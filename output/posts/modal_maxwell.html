@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> modal_maxwell </title>
+  <!-- <title>My Blog</title> -->
+  <link rel="stylesheet" href="/static/css/style.css">
+  <!--code highlight-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <!--code highlight-->
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+
+
+  <div class="sidebar-container">
+    <aside class="sidebar">
+      <img src="/static/images/CMB.webp" alt="Profile Picture" class="sidebar-image">
+      <h1>Prakrut Chaubal</h1>
+      <ul>
+        <li><a href="/index.html" class="nav-link ">🏠 Home</a></li>
+        <li><a href="/tabs/about.html" class="nav-link ">👤 About</a></li>
+        <li><a href="/tabs/archive.html" class="nav-link ">📚 Archive</a></li>
+        <li><a href="/tabs/contact.html" class="nav-link ">✉️ Contact</a></li>
+      </ul>
+    </aside>
+  </div>
+
+
+  
+<div class="content">
+  <!--<h1>Modal Maxwell</h1>-->
+  <article>
+    <h1>Modal Analysis for Optical Waveguides</h1>
+<p><strong>Summary:</strong> This article lays out the analytic expression to represent the propagating optical modes in a waveguide. It explores orthogonality of modes such modes and the analytic expression of the propagation constants.</p>
+<h2>The Reciprocity Theorem</h2>
+<h3>The Conjugated Form</h3>
+<p>The reciprocity theorem relates the line integral of a field to the surface integral of its divergence. The field under consideration here is a combination of the electric E and the magnetic field H, given by 
+$$ \mathbf{F}_c = \bf{E} \times \bar{\bf{H}} + \bar{\bf{E}} \times \bf{H} \ , $$</p>
+<p>where the barred quantities denote the Fourier space representation of the fields. Applying the divergence theorem, we find</p>
+<p>$$ \int_{A} \nabla \cdot \textbf{F}_c \ dA = \frac{\partial}{\partial z} \int_A \textbf{F}_c \cdot \hat{z} \ dA + \int \textbf{F}_c \cdot \hat{n} \ dl \ . $$</p>
+<p>The second term on the right hand side of the above equation represents a line integral along the boundary of A. In the limit of infinite cross section, the line integral drops to zero as physical fields are assumed to be zero at infinity. Thus, we are left with the reciprocity theorem,
+$$ \frac{\partial}{\partial z} \int_A \textbf{F}_c \cdot \hat{z} \ dA = \int_A \nabla \cdot \textbf{F}_c \ dA \ . $$</p>
+<h2>Propagation constants</h2>
+  </article>
+</div>
+
+
+</body>
+
+</html>

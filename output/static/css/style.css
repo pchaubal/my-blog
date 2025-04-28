@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: "Palatino", "Palatino Linotype", "Georgia", serif;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  display: flex;
+}
+
+/*Hyperlink formatting*/
+a {
+  color: #8be9fd; /* soft cyan, easy on the eyes */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a:hover {
+  color: #ffffff; /* bright white on hover */
+  text-shadow: 0 0 5px #8be9fd; /* gentle glow effect */
+}
+
+
+.sidebar-container {
+  width: 15%;
+  flex: 0 0 15%;
+  background-color: #111;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  text-align: center;
+}
+.sidebar ul {
+  list-style: none; /* removes bullet points */
+  padding-left: 0;   /* removes default indentation */
+  margin: 0;
+}
+
+
+.sidebar h1 {
+  font-size: 32px; /* increase font size */
+  color: #fff;
+}
+
+.sidebar h2 {
+  color: #fff;
+}
+
+.sidebar a {
+  color: #a0a0ff;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  text-decoration: none;
+}
+
+.sidebar-image {
+  width: 50%;               /* 60% of sidebar width */
+  height: auto;             /* maintain aspect ratio */
+  display: block;
+  margin: 10px auto;
+  border-radius: 50%;
+  border: 2px solid #444;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-image:hover {
+  transform: scale(1.1); /* Grows by 10% */
+}
+
+
+/* General navigation link styles */
+.sidebar .nav-link {
+  display: block;
+  padding: 12px 15px; /* adjust padding for a better rectangle look */
+  border-radius: 12px; /* rounded corners */
+  text-decoration: none;
+  color: #ccc; /* text color */
+  background-color: transparent; /* transparent by default */
+  transition: background-color 0.3s ease, color 0.3s ease; /* smooth transition */
+  margin-bottom: 20px; /* space between links */
+  font-size: 25px; /* increase font size */
+  font-weight: bold;
+}
+
+/* Hover effect */
+.sidebar .nav-link:hover {
+  background-color: #444; /* darker background when hovered */
+  color: #fff; /* text color on hover */
+}
+
+/* Active link (the selected one) */
+.nav-link.active {
+  background-color: #555; /* background color when active */
+  color: #fff; /* white text */
+  font-weight: bold; /* bold text */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1); /* light border effect */
+}
+
+
+
+.content {
+  padding: 40px;
+  flex-grow: 1;
+  text-align: justify;
+  margin-left: 4%;  /* adjust based on your sidebar width */
+  margin-right: 20%;  /* space from right edge */
+  font-size: 22px;
+}
+
+.content h1 {
+  text-align:center;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60%;
+  height: auto;
+}
+
+code {
+  background-color: #333;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: #2d2d2d;
+  padding: 10px;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
